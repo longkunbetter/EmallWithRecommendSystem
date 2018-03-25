@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- 控制台的日志记录-->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH\:mm\:ss}] %t %c %m %n" />
+        </layout>
+    </appender>
+
+    <!--所有日志记录-->
+    <appender name="OaGateWayAllILogFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/data/logs/alllog.log" />
+        <param name="Append" value="true" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <param name="Threshold" value="INFO" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH\:mm\:ss}] %t %c %m %n" />
+        </layout>
+        <param name="bufferedIO" value="false" />
+        <param name="bufferSize" value="1" />
+    </appender>
+
+    <!-- Info日志记录 -->
+    <appender name="OaGateWayInfoFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/data/logs/info.log" />
+        <param name="Append" value="true" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <param name="Threshold" value="INFO" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH\:mm\:ss}] %t %c %m %n" />
+        </layout>
+        <param name="bufferedIO" value="false" />
+        <param name="bufferSize" value="1" />
+
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="INFO"/>
+            <param name="LevelMin" value="INFO"/>
+        </filter>
+    </appender>
+
+    <appender name="OaGateWayErrorFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/data/logs/error.log" />
+        <param name="Append" value="true" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH\:mm\:ss}] %t %c %m %n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="ERROR"/>
+            <param name="LevelMin" value="ERROR"/>
+        </filter>
+    </appender>
+
+    <appender name="asyncAll" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="OaGateWayAllILogFile" />
+    </appender>
+    <appender name="asyncError" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="OaGateWayErrorFile" />
+    </appender>
+    <appender name="asyncInfo" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="OaGateWayInfoFile"/>
+    </appender>
+
+    <!-- Root Logger -->
+    <root>
+        <priority value="info" />
+        <appender-ref ref="asyncAll" />
+        <appender-ref ref="asyncError" />
+        <appender-ref ref="asyncInfo" />
+    </root>
+
+</log4j:configuration>
