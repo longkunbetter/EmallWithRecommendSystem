@@ -31,7 +31,7 @@ public class UserController {
             httpSession.setAttribute("loginInfo", loginedUser);
 
             //登录行为记录到日志
-            log.info("behavior\t" + + UserBehavior.LOGIN);
+            log.info("behavior\t" + loginedUser.getId() + "\t" + UserBehavior.LOGIN);
 
             return "redirect:/index";
         }
@@ -49,6 +49,6 @@ public class UserController {
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
     public String userRegister(EmallUser registerInfo){
-
+        return "redirect:/login";
     }
 }
