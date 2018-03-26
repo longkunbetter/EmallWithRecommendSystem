@@ -10,67 +10,38 @@
             <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH\:mm\:ss}] %t %c %m %n" />
         </layout>
     </appender>
-
-    <!--所有日志记录-->
-    <appender name="OaGateWayAllILogFile" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/data/logs/alllog.log" />
-        <param name="Append" value="true" />
-        <param name="DatePattern" value="'.'yyyy-MM-dd" />
-        <param name="Threshold" value="INFO" />
+    <appender name="asyncConsole" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="console" />
+    </appender>
+    
+    <!--行为日志记录-->
+    <appender name="behavior" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="E:/GraductionProject/logs/behavior/behavior.log" />
+        <param name="Encoding" value="UTF-8"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH\:mm\:ss}] %t %c %m %n" />
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss}\t%m%n"/>
         </layout>
-        <param name="bufferedIO" value="false" />
-        <param name="bufferSize" value="1" />
+    </appender>
+    <appender name="asyncBehavior" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="behavior"/>
     </appender>
 
-    <!-- Info日志记录 -->
-    <appender name="OaGateWayInfoFile" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/data/logs/info.log" />
-        <param name="Append" value="true" />
-        <param name="DatePattern" value="'.'yyyy-MM-dd" />
-        <param name="Threshold" value="INFO" />
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH\:mm\:ss}] %t %c %m %n" />
-        </layout>
-        <param name="bufferedIO" value="false" />
-        <param name="bufferSize" value="1" />
+    <!--屏蔽Spring的debug日志-->
+    <logger name="org.springframework" additivity="false">
+        <level value="error"/>
+        <appender-ref ref="asyncConsole"/>
+    </logger>
 
-        <filter class="org.apache.log4j.varia.LevelRangeFilter">
-            <param name="LevelMax" value="INFO"/>
-            <param name="LevelMin" value="INFO"/>
-        </filter>
-    </appender>
-
-    <appender name="OaGateWayErrorFile" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/data/logs/error.log" />
-        <param name="Append" value="true" />
-        <param name="DatePattern" value="'.'yyyy-MM-dd" />
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH\:mm\:ss}] %t %c %m %n" />
-        </layout>
-        <filter class="org.apache.log4j.varia.LevelRangeFilter">
-            <param name="LevelMax" value="ERROR"/>
-            <param name="LevelMin" value="ERROR"/>
-        </filter>
-    </appender>
-
-    <appender name="asyncAll" class="org.apache.log4j.AsyncAppender">
-        <appender-ref ref="OaGateWayAllILogFile" />
-    </appender>
-    <appender name="asyncError" class="org.apache.log4j.AsyncAppender">
-        <appender-ref ref="OaGateWayErrorFile" />
-    </appender>
-    <appender name="asyncInfo" class="org.apache.log4j.AsyncAppender">
-        <appender-ref ref="OaGateWayInfoFile"/>
-    </appender>
+    <!--behavior logger-->
+    <logger name="BehaviorLogger" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="asyncBehavior"/>
+    </logger>
 
     <!-- Root Logger -->
     <root>
-        <priority value="info" />
-        <appender-ref ref="asyncAll" />
-        <appender-ref ref="asyncError" />
-        <appender-ref ref="asyncInfo" />
+        <priority value="debug" />
+        <appender-ref ref="asyncConsole"/>
     </root>
 
 </log4j:configuration>

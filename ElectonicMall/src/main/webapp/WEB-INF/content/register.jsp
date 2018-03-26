@@ -30,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class=" container">
 	<div class=" register">
 		<h1>注册帐号</h1>
-		<form>
+		<form action="/common/user/register" method="post">
 			<div class="col-md-6 register-top-grid">
 				<h3>个人信息</h3>
 				<div>
@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div>
 					<span>性别</span>
-					<input type="text" name="gender">
+					<input type="text" name="registerGender">
 				</div>
 				<div>
 					<span>所在地</span>

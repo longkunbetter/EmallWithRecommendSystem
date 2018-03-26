@@ -11,7 +11,9 @@ public class EmallUser {
 
     private String email;
 
-    private Boolean gender;
+    private Integer gender;
+
+    private String registerGender;
 
     public Integer getId() {
         return id;
@@ -53,11 +55,19 @@ public class EmallUser {
         this.email = email;
     }
 
-    public Boolean getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(Boolean gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
+    }
+
+    public String getRegisterGender() {
+        return registerGender;
+    }
+
+    public void setRegisterGender(String registerGender) {
+        this.registerGender = registerGender;
     }
 }

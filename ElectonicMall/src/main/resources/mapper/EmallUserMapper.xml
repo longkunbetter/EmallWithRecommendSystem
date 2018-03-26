@@ -106,7 +106,8 @@
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{gender,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.emall.common.entity.EmallUser" >
+  <insert id="insertSelective" parameterType="com.emall.common.entity.EmallUser"
+         >
     insert into emall_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -229,5 +230,11 @@
     SELECT * FROM emall_user
       WHERE USERNAME = #{username}
       AND PASSWORD = #{password}
+  </select>
+  
+  <select id="countByUserName" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT COUNT(ID)
+    FROM emall_user
+      WHERE USERNAME = #{username}
   </select>
 </mapper>

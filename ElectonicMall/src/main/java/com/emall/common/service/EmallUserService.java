@@ -25,4 +25,22 @@ public class EmallUserService {
         EmallUser loginedUser = userDao.selectByLoginInfo(loginInfo);
         return loginedUser;
     }
+
+    public boolean addUser(EmallUser registerInfo){
+        String encodedPassword = Md5Util.md5Hex(registerInfo.getPassword());
+        registerInfo.setPassword(encodedPassword);
+        int res = userDao.insertSelective(registerInfo);
+        if (res > 0){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean userExist(EmallUser registerInfo){
+        int count = userDao.countByUserName(registerInfo.getUsername());
+        if (count > 0){
+            return true;
+        }
+        return false;
+    }
 }

@@ -29,4 +29,6 @@ public interface EmallUserMapper {
     int updateByPrimaryKey(EmallUser record);
 
     EmallUser selectByLoginInfo(EmallUser loginInfo);
+
+    Integer countByUserName(String username);
 }
