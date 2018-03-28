@@ -28,8 +28,7 @@
 
     <!--屏蔽Spring的debug日志-->
     <logger name="org.springframework" additivity="false">
-        <level value="error"/>
-        <appender-ref ref="asyncConsole"/>
+        <level value="DEBUG"/>
     </logger>
 
     <!--behavior logger-->

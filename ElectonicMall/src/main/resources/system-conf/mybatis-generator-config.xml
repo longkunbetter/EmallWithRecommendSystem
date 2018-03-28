@@ -43,6 +43,24 @@
         </javaClientGenerator>
 
         <!-- 相关表的配置 -->
-        <table tableName="emall_user"/>
+        <!--<table tableName="emall_user"/>-->
+        <!--
+        <table tableName="commodity"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        -->
+        <!--
+        <table tableName="categorize"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        -->
     </context>
 </generatorConfiguration>
