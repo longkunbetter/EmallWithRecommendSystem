@@ -87,10 +87,9 @@
 							</h3>
 						</div>
 					</a>
-
-
 					<p><a href="single.html">Contrary to popular</a></p>
 				</div>
+
 				<div class="col-md-4 grid-top">
 					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi1.jpg" alt="">
 						<div class="b-wrapper">
@@ -101,6 +100,7 @@
 					</a>
 					<p><a href="single.html">classical Latin</a></p>
 				</div>
+
 				<div class="col-md-4 grid-top">
 					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi2.jpg" alt="">
 						<div class="b-wrapper">
@@ -113,6 +113,7 @@
 				</div>
 				<div class="clearfix"> </div>
 			</div>
+
 			<div class="grid-in">
 				<div class="col-md-4 grid-top">
 					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi3.jpg" alt="">

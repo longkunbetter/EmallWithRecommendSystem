@@ -2,15 +2,16 @@ package com.emall.common.controller;
 
 import com.emall.common.constant.EmallConf;
 import com.emall.common.service.CommodityService;
+import com.emall.recomd.service.impl.UserBehaviorRecorder;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.List;
 
 /**
  * 商品模块Controller
@@ -20,6 +21,10 @@ import java.util.List;
 public class CommodityController {
     @Autowired
     private CommodityService commodityService;
+
+    @Autowired
+    private UserBehaviorRecorder userBehaviorRecorder;
+
 
     /**
      * 获取指定名称的图片
@@ -56,6 +61,4 @@ public class CommodityController {
             e.printStackTrace();
         }
     }
-
-
 }

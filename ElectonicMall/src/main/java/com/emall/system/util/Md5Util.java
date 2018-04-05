@@ -1,8 +1,7 @@
-package com.emall.util;
+package com.emall.system.util;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.junit.Test;
 import sun.misc.BASE64Encoder;
 
 import java.security.MessageDigest;

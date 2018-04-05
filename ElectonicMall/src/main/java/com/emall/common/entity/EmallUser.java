@@ -1,6 +1,9 @@
 package com.emall.common.entity;
 
 public class EmallUser {
+    private static final int MAN = 1;
+    private static final int WOMAN = 0;
+
     private Integer id;
 
     private String username;

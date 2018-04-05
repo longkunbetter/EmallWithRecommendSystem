@@ -2,8 +2,7 @@ package com.emall.common.service;
 
 import com.emall.common.dao.EmallUserMapper;
 import com.emall.common.entity.EmallUser;
-import com.emall.common.entity.EmallUserExample;
-import com.emall.util.Md5Util;
+import com.emall.system.util.Md5Util;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;

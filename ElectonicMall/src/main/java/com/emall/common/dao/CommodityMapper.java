@@ -2,6 +2,8 @@ package com.emall.common.dao;
 
 import com.emall.common.entity.Commodity;
 
+import java.util.List;
+
 public interface CommodityMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface CommodityMapper {
     int updateByPrimaryKeySelective(Commodity record);
 
     int updateByPrimaryKey(Commodity record);
+
+    List<String> selectAllIds();
 }

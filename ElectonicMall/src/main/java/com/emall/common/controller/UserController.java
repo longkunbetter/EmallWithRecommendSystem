@@ -1,8 +1,10 @@
 package com.emall.common.controller;
 
+import com.emall.common.constant.EmallConf;
 import com.emall.common.entity.EmallUser;
 import com.emall.common.service.EmallUserService;
-import com.emall.recomd.UserBehaviorUtil;
+import com.emall.recomd.constant.BehaviorConstant;
+import com.emall.recomd.service.impl.UserBehaviorRecorder;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -21,14 +23,17 @@ public class UserController {
     @Autowired
     private EmallUserService userService;
 
+    @Autowired
+    private UserBehaviorRecorder userBehaviorRecorder;
+
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String userLogin(EmallUser loginInfo, HttpSession httpSession){
         EmallUser loginedUser = userService.verifyUser(loginInfo);
         if (loginedUser != null){
-            httpSession.setAttribute("loginInfo", loginedUser);
+            httpSession.setAttribute(EmallConf.LOGIN_INFO_KEY, loginedUser);
 
             //登录行为记录到日志
-            UserBehaviorUtil.putLoginLog(loginedUser.getId(), UserBehaviorUtil.LOGIN);
+            userBehaviorRecorder.putLoginLog(loginedUser.getId(), BehaviorConstant.LOGIN);
 
             return "redirect:/index";
         }
@@ -41,9 +46,9 @@ public class UserController {
     public String userLoginOut(HttpSession httpSession){
         //行为日志记录
         EmallUser user = (EmallUser) httpSession.getAttribute("loginInfo");
-        UserBehaviorUtil.putLoginLog(user.getId(), UserBehaviorUtil.LOGIN_OUT);
+        userBehaviorRecorder.putLoginLog(user.getId(), BehaviorConstant.LOGIN_OUT);
 
-        httpSession.removeAttribute("loginInfo");
+        httpSession.removeAttribute(EmallConf.LOGIN_INFO_KEY);
         httpSession.invalidate();
 
         return "redirect:/login";
@@ -60,7 +65,8 @@ public class UserController {
         boolean res = userService.addUser(registerInfo);
         registerInfo.setPassword(originPwd);
 
-        if (res == true){
+        if (res){
+            //注册成功后自动登录
             return this.userLogin(registerInfo, httpSession);
         }
         return "redirect:/register";

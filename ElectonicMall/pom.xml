@@ -65,7 +65,7 @@
 
     <!--日志系统版本-->
     <commons.logging.version>1.2</commons.logging.version>
-    <log4j.version>1.2.12</log4j.version>
+    <log4j.version>1.2.16</log4j.version>
 
     <!-- spring版本号 -->
     <spring.version>4.2.5.RELEASE</spring.version>
@@ -209,6 +209,19 @@
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>2.6</version>
+    </dependency>
+
+    <!--kafka客户端依赖-->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+    <!--log4j写入kafka的工具-->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-log4j-appender</artifactId>
+      <version>0.10.2.1</version>
     </dependency>
 
 

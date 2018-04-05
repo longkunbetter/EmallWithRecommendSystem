@@ -14,16 +14,15 @@
         <appender-ref ref="console" />
     </appender>
     
-    <!--行为日志记录-->
-    <appender name="behavior" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="E:/GraductionProject/logs/behavior/behavior.log" />
+    <!--log4j作为kafka producer将日志发送到kafka中-->
+    <appender name="behavior" class="org.apache.kafka.log4jappender.KafkaLog4jAppender">
+        <param name="brokerList" value="Master:9092,Slave1:9092"/>
+        <param name="pa" value="Slave2:9092"/>
+        <param name="topic" value="userBehavior"/>
         <param name="Encoding" value="UTF-8"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss}\t%m%n"/>
         </layout>
-    </appender>
-    <appender name="asyncBehavior" class="org.apache.log4j.AsyncAppender">
-        <appender-ref ref="behavior"/>
     </appender>
 
     <!--屏蔽Spring的debug日志-->
@@ -34,12 +33,12 @@
     <!--behavior logger-->
     <logger name="BehaviorLogger" additivity="false">
         <level value="info"/>
-        <appender-ref ref="asyncBehavior"/>
+        <appender-ref ref="behavior"/>
     </logger>
 
     <!-- Root Logger -->
     <root>
-        <priority value="debug" />
+        <priority value="info" />
         <appender-ref ref="asyncConsole"/>
     </root>
 

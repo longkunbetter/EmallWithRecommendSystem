@@ -12,7 +12,7 @@
     id, title, price, desc, mainimg
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from commodity
     where id = #{id,jdbcType=INTEGER}
@@ -22,10 +22,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.emall.common.entity.Commodity" >
-    insert into commodity (id, title, price, 
-      desc, mainimg)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
-      #{desc,jdbcType=VARCHAR}, #{mainimg,jdbcType=VARCHAR})
+    insert into commodity (id, title, price,
+    desc, mainimg)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL},
+    #{desc,jdbcType=VARCHAR}, #{mainimg,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.emall.common.entity.Commodity" >
     insert into commodity
@@ -85,9 +85,16 @@
   <update id="updateByPrimaryKey" parameterType="com.emall.common.entity.Commodity" >
     update commodity
     set title = #{title,jdbcType=VARCHAR},
-      price = #{price,jdbcType=DECIMAL},
-      desc = #{desc,jdbcType=VARCHAR},
-      mainimg = #{mainimg,jdbcType=VARCHAR}
+    price = #{price,jdbcType=DECIMAL},
+    desc = #{desc,jdbcType=VARCHAR},
+    mainimg = #{mainimg,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectAllIds" resultType="java.lang.String">
+    SELECT
+      id
+    FROM
+      commodity
+  </select>
 </mapper>
