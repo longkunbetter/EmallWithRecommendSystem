@@ -43,7 +43,7 @@
 				</form>
 			</div>
 			<div class="col-md-4 left-account ">
-				<a href="single.html"><img class="img-responsive " src="images/s1.jpg" alt=""></a>
+				<a href="single.jsp"><img class="img-responsive " src="images/s1.jpg" alt=""></a>
 				<div class="five">
 					<h2>25% </h2><span>discount</span>
 				</div>

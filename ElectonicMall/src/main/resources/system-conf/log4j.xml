@@ -24,6 +24,10 @@
             <param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss}\t%m%n"/>
         </layout>
     </appender>
+    <!--异步发送防止阻塞业务正常进行-->
+    <appender name="asyncBehavior" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="behavior" />
+    </appender>
 
     <!--屏蔽Spring的debug日志-->
     <logger name="org.springframework" additivity="false">
@@ -33,9 +37,8 @@
     <!--behavior logger-->
     <logger name="BehaviorLogger" additivity="false">
         <level value="info"/>
-        <appender-ref ref="behavior"/>
+        <appender-ref ref="asyncBehavior"/>
     </logger>
-
     <!-- Root Logger -->
     <root>
         <priority value="info" />

@@ -30,6 +30,7 @@
 <!--header-->
 <%@include file="heade.jsp" %>
 
+<!--banner-->
 <div class="banner">
 	<div class="container">
 		<script src="js/responsiveslides.min.js"></script>
@@ -46,154 +47,108 @@
 		</script>
 		<div  id="top" class="callbacks_container">
 			<ul class="rslides" id="slider">
-				<li>
-					<div class="banner-text">
-						<h3>Lorem Ipsum is not simply dummy  </h3>
-						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
-						<a href="single.html">Learn More</a>
-					</div>
-				</li>
-				<li>
-					<div class="banner-text">
-						<h3>There are many variations </h3>
-						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
-						<a href="single.html">Learn More</a>
-					</div>
-				</li>
-				<li>
-					<div class="banner-text">
-						<h3>Sed ut perspiciatis unde omnis</h3>
-						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
-						<a href="single.html">Learn More</a>
-					</div>
-				</li>
+				<c:forEach items="${requestScope.commodityData.pannelData}" var="item" varStatus="status">
+					<li>
+						<div class="banner-text">
+							<h3>${item.title}</h3>
+							<p>${item.desc}</p>
+							<a href="/commodity/details/${item.id}">了解更多</a>
+						</div>
+					</li>
+				</c:forEach>
 			</ul>
 		</div>
-
 	</div>
 </div>
 
 <!--content-->
 <div class="content">
 	<div class="container">
+		<!--为你推荐-->
 		<div class="content-top">
-			<h1>NEW RELEASED</h1>
+			<h1>为你推荐</h1>
 			<div class="grid-in">
-				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi.jpg" alt="">
-						<div class="b-wrapper">
-							<h3 class="b-animate b-from-left    b-delay03 ">
-								<span>T-Shirt</span>
-							</h3>
+				<c:forEach items="${requestScope.commodityData.guessData}" var="item" varStatus="status">
+					<c:if test="${status.index < 3}">
+						<div class="col-md-4 grid-top">
+							<a href="/commodity/deaails/${item.id}" class="b-link-stripe b-animate-go  thickbox">
+								<img class="img-responsive" src="/commodity/img/${item.mainimg}" alt="">
+								<div class="b-wrapper">
+									<h3 class="b-animate b-from-left    b-delay03 ">
+										<span>${item.title}</span>
+									</h3>
+								</div>
+							</a>
+							<p><a href="/commodity/deaails/${item.id}">${item.title}</a></p>
 						</div>
-					</a>
-					<p><a href="single.html">Contrary to popular</a></p>
-				</div>
-
-				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi1.jpg" alt="">
-						<div class="b-wrapper">
-							<h3 class="b-animate b-from-left    b-delay03 ">
-								<span>Shoe</span>
-							</h3>
-						</div>
-					</a>
-					<p><a href="single.html">classical Latin</a></p>
-				</div>
-
-				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi2.jpg" alt="">
-						<div class="b-wrapper">
-							<h3 class="b-animate b-from-left    b-delay03 ">
-								<span>Bag</span>
-							</h3>
-						</div>
-					</a>
-					<p><a href="single.html">undoubtable</a></p>
-				</div>
+					</c:if>
+				</c:forEach>
 				<div class="clearfix"> </div>
 			</div>
-
 			<div class="grid-in">
-				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi3.jpg" alt="">
-						<div class="b-wrapper">
-							<h3 class="b-animate b-from-left    b-delay03 ">
-								<span>Shirt</span>
-							</h3>
+				<c:forEach items="${requestScope.commodityData.guessData}" var="item" varStatus="status">
+					<c:if test="${status.index >= 3}">
+						<div class="col-md-4 grid-top">
+							<a href="/commodity/deaails/${item.id}" class="b-link-stripe b-animate-go  thickbox">
+								<img class="img-responsive" src="/commodity/img/${item.mainimg}" alt="">
+								<div class="b-wrapper">
+									<h3 class="b-animate b-from-left    b-delay03 ">
+										<span>${item.title}</span>
+									</h3>
+								</div>
+							</a>
+							<p><a href="/commodity/deaails/${item.id}">${item.title}</a></p>
 						</div>
-					</a>
-					<p><a href="single.html">suffered alteration</a></p>
-				</div>
-				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi4.jpg" alt="">
-						<div class="b-wrapper">
-							<h3 class="b-animate b-from-left    b-delay03 ">
-								<span>Bag</span>
-							</h3>
-						</div>
-					</a>
-					<p><a href="single.html">Content here</a></p>
-				</div>
-				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi5.jpg" alt="">
-						<div class="b-wrapper">
-							<h3 class="b-animate b-from-left    b-delay03 ">
-								<span>Shoe</span>
-							</h3>
-						</div>
-					</a>
-					<p><a href="single.html">readable content</a></p>
-				</div>
+					</c:if>
+				</c:forEach>
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<!----->
 
+		<!--特色商品-->
 		<div class="content-top-bottom">
-			<h2>Featured Collections</h2>
+			<h2>特色商品</h2>
 			<div class="col-md-6 men">
-				<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t1.jpg" alt="">
+				<a href="/commodity/deaails/${requestScope.commodityData.featureData[0].id}" class="b-link-stripe b-animate-go  thickbox">
+					<img class="img-responsive" src="/commodity/img/${requestScope.commodityData.featureData[0].mainimg}" alt="" style="height:560px">
 					<div class="b-wrapper">
 						<h3 class="b-animate b-from-top top-in   b-delay03 ">
-							<span>Lorem</span>
+							<span>${requestScope.commodityData.featureData[0].title}</span>
 						</h3>
 					</div>
 				</a>
-
-
 			</div>
 			<div class="col-md-6">
 				<div class="col-md1 ">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t2.jpg" alt="">
+					<a href="/commodity/deaails/${requestScope.commodityData.featureData[1].id}" class="b-link-stripe b-animate-go  thickbox" style="height:270px">
+						<img class="img-responsive" src="/commodity/img/${requestScope.commodityData.featureData[1].mainimg}" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-top top-in1   b-delay03 ">
-								<span>Lorem</span>
+								<span>${requestScope.commodityData.featureData[1].title}</span>
 							</h3>
 						</div>
 					</a>
-
 				</div>
 				<div class="col-md2">
 					<div class="col-md-6 men1">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t3.jpg" alt="">
+						<a href="/commodity/deaails/${requestScope.commodityData.featureData[2].id}" class="b-link-stripe b-animate-go  thickbox">
+							<img class="img-responsive" src="/commodity/img/${requestScope.commodityData.featureData[2].mainimg}" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
-									<span>Lorem</span>
+									<span>${requestScope.commodityData.featureData[2].title}</span>
 								</h3>
 							</div>
 						</a>
-
 					</div>
 					<div class="col-md-6 men2">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t4.jpg" alt="">
+						<a href="/commodity/deaails/${requestScope.commodityData.featureData[3].id}" class="b-link-stripe b-animate-go  thickbox">
+							<img class="img-responsive" src="/commodity/img/${requestScope.commodityData.featureData[3].mainimg}g" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
-									<span>Lorem</span>
+									<span>${requestScope.commodityData.featureData[3].title}</span>
 								</h3>
 							</div>
 						</a>
-
 					</div>
 					<div class="clearfix"> </div>
 				</div>

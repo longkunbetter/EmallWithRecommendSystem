@@ -1,6 +1,7 @@
 package com.emall.common.entity;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class Commodity {
     private Integer id;
@@ -12,6 +13,16 @@ public class Commodity {
     private String desc;
 
     private String mainimg;
+
+    private Date createdate;
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
+    }
 
     public Integer getId() {
         return id;

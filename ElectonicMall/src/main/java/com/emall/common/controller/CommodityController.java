@@ -1,15 +1,15 @@
 package com.emall.common.controller;
 
 import com.emall.common.constant.EmallConf;
+import com.emall.common.entity.Commodity;
 import com.emall.common.service.CommodityService;
-import com.emall.recomd.service.impl.UserBehaviorRecorder;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
@@ -22,9 +22,19 @@ public class CommodityController {
     @Autowired
     private CommodityService commodityService;
 
-    @Autowired
-    private UserBehaviorRecorder userBehaviorRecorder;
+    /**
+     * 展示指定商品的详情页面
+     * */
+    @RequestMapping(value = "/deaails/{id}")
+    public String showCommodityDtails(@PathVariable(value = "id") Integer id, HttpServletRequest request){
+        Commodity distCommodity = commodityService.getCommodityById(id);
+        if (distCommodity == null){
+            return "error";
+        }
 
+        request.setAttribute(EmallConf.INDEX_COMMODITY_DATA_KEY, distCommodity);
+        return "single";
+    }
 
     /**
      * 获取指定名称的图片

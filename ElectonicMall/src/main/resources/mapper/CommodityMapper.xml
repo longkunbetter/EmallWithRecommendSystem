@@ -9,7 +9,7 @@
     <result column="mainimg" property="mainimg" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, price, desc, mainimg
+    id, title, price, `desc`, mainimg, createdate
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
@@ -96,5 +96,20 @@
       id
     FROM
       commodity
+  </select>
+
+  <select id="selectByIds" resultType="com.emall.common.entity.Commodity">
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM
+      commodity
+    WHERE
+      id IN
+      <foreach item="id" collection="list" index="index" open="("
+               separator="," close=")">
+        #{id}
+      </foreach>
+    ORDER BY
+      createdate DESC
   </select>
 </mapper>

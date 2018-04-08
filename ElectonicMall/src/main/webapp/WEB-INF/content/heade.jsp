@@ -31,7 +31,7 @@
                     <a href="checkout">
                         <h3> <div class="total">
                             <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-                            <img src="images/cart.png" alt=""/></h3>
+                            <img src="${pageContext.request.contextPath}/images/cart.png" alt=""/></h3>
                     </a>
                     <p><a href="javascript:;" class="simpleCart_empty">清空购物车</a></p>
 
@@ -44,7 +44,7 @@
     <div class="container">
         <div class="head-top">
             <div class="logo">
-                <a href="/index"><img src="images/logo.png" alt=""></a>
+                <a href="/index"><img src="${pageContext.request.contextPath}/images/logo.png" alt=""></a>
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">

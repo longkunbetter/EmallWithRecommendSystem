@@ -17,5 +17,13 @@ public interface CommodityMapper {
 
     int updateByPrimaryKey(Commodity record);
 
+    /**
+     * 获取全部商品的id
+     * */
     List<String> selectAllIds();
+
+    /**
+     * 获取指定一组id的商品数据
+     * */
+    List<Commodity> selectByIds(List<String> idList);
 }
