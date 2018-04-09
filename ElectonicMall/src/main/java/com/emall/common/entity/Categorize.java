@@ -1,5 +1,7 @@
 package com.emall.common.entity;
 
+import java.util.List;
+
 public class Categorize {
     private Integer id;
 
@@ -30,4 +32,5 @@ public class Categorize {
     public void setParentid(Integer parentid) {
         this.parentid = parentid;
     }
+
 }

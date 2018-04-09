@@ -16,13 +16,13 @@
                     <c:when test="${sessionScope.loginInfo!=null}">
                         <ul>
                             <li ><a href="#">你好,${sessionScope.loginInfo.username}</a></li>
-                            <li><a  href="/common/user/loginout">退出登录</a></li>
+                            <li><a  href="${pageContext.request.contextPath}/common/user/loginout">退出登录</a></li>
                         </ul>
                     </c:when>
                     <c:otherwise>
                         <ul>
-                            <li ><a href="login">登录</a></li>
-                            <li><a  href="register">注册</a></li>
+                            <li ><a href="${pageContext.request.contextPath}/login">登录</a></li>
+                            <li><a  href="${pageContext.request.contextPath}/register">注册</a></li>
                         </ul>
                     </c:otherwise>
                 </c:choose>
@@ -44,7 +44,7 @@
     <div class="container">
         <div class="head-top">
             <div class="logo">
-                <a href="/index"><img src="${pageContext.request.contextPath}/images/logo.png" alt=""></a>
+                <a href="${pageContext.request.contextPath}/index"><img src="${pageContext.request.contextPath}/images/logo.png" alt=""></a>
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
@@ -58,7 +58,7 @@
                                         <div class="h_nav">
                                             <ul>
                                                 <c:forEach items="${item.subCategorizes}" var="subItem" varStatus="subStatus">
-                                                    <li><a href="/search/${subItem.id}">${subItem.name}</a></li>
+                                                    <li><a href="${pageContext.request.contextPath}/commodity/categorize?categorizeId=${subItem.id}">${subItem.name}</a></li>
                                                 </c:forEach>
                                             </ul>
                                         </div>
@@ -66,18 +66,18 @@
                                     <div class="col1">
                                         <div class="h_nav">
                                             <ul>
-                                                <li><a href="products.html">Shirts</a></li>
-                                                <li><a href="products.html">Shoes, Boots & Trainers</a></li>
-                                                <li><a href="products.html">Vests</a></li>
+                                                <li><a href="products.jsp">Shirts</a></li>
+                                                <li><a href="products.jsp">Shoes, Boots & Trainers</a></li>
+                                                <li><a href="products.jsp">Vests</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col1">
                                         <div class="h_nav">
                                             <ul>
-                                                <li><a href="products.html">Shirts</a></li>
-                                                <li><a href="products.html">Shoes, Boots & Trainers</a></li>
-                                                <li><a href="products.html">Vests</a></li>
+                                                <li><a href="products.jsp">Shirts</a></li>
+                                                <li><a href="products.jsp">Shoes, Boots & Trainers</a></li>
+                                                <li><a href="products.jsp">Vests</a></li>
                                             </ul>
                                         </div>
                                     </div>

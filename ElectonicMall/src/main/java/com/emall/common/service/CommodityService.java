@@ -16,31 +16,14 @@ import java.util.Set;
 @Service
 public class CommodityService {
     @Autowired
-    private CategorizeMapper categorizeDao;
-    @Autowired
     private CommodityMapper commodityDao;
 
     /**
-     * 获取前n个一级商品分类
-     * @param n
-     *      前n个
-     * @return 前n个顶级分类的对象，若不足n，则数量为顶级分类的总量
+     * 获取指定分类的商品数据
      * */
-    public List<Categorize> listTopCategorize(int n){
-        return categorizeDao.selectByHierarchy(0, n, true);
+    public List<Commodity> listCommodityByCategorize(Integer categorizeId){
+        return commodityDao.listByCategorize(categorizeId);
     }
-
-    /**
-     * 根据顶层商品类型ID获取该类型下属所有二级分类
-     * @param topCategorizeId
-     *          顶层商品ID
-     * @return
-     *          该商品类型下属所有二级分类
-     * */
-    public List<Categorize> listCategorizeByTopCategorize(int topCategorizeId){
-        return categorizeDao.selectByTopCategorize(topCategorizeId);
-    }
-
     /**
      * 随机选取n条商品数据
      * @param selectNum

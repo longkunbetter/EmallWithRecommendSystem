@@ -43,4 +43,9 @@ public class EmallConf {
      * 商品数据传递到jsp页面的key值
      * */
     public static final String INDEX_COMMODITY_DATA_KEY = "commodityData";
+
+    /**
+     * 商品分类展示页面单页商品数量
+     * */
+    public static final int COMMODITY_CATEGORIZE_PAGE_SIZE = 9;
 }

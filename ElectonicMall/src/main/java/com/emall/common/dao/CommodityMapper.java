@@ -26,4 +26,11 @@ public interface CommodityMapper {
      * 获取指定一组id的商品数据
      * */
     List<Commodity> selectByIds(List<String> idList);
+
+    /**
+     * 获取指定类型的商品数据
+     * @param cid
+     *          类型id
+     * */
+    List<Commodity> listByCategorize(int cid);
 }

@@ -71,7 +71,7 @@
 				<c:forEach items="${requestScope.commodityData.guessData}" var="item" varStatus="status">
 					<c:if test="${status.index < 3}">
 						<div class="col-md-4 grid-top">
-							<a href="/commodity/deaails/${item.id}" class="b-link-stripe b-animate-go  thickbox">
+							<a href="/commodity/details/${item.id}" class="b-link-stripe b-animate-go  thickbox">
 								<img class="img-responsive" src="/commodity/img/${item.mainimg}" alt="">
 								<div class="b-wrapper">
 									<h3 class="b-animate b-from-left    b-delay03 ">
@@ -79,7 +79,7 @@
 									</h3>
 								</div>
 							</a>
-							<p><a href="/commodity/deaails/${item.id}">${item.title}</a></p>
+							<p><a href="/commodity/details/${item.id}">${item.title}</a></p>
 						</div>
 					</c:if>
 				</c:forEach>
@@ -89,7 +89,7 @@
 				<c:forEach items="${requestScope.commodityData.guessData}" var="item" varStatus="status">
 					<c:if test="${status.index >= 3}">
 						<div class="col-md-4 grid-top">
-							<a href="/commodity/deaails/${item.id}" class="b-link-stripe b-animate-go  thickbox">
+							<a href="/commodity/details/${item.id}" class="b-link-stripe b-animate-go  thickbox">
 								<img class="img-responsive" src="/commodity/img/${item.mainimg}" alt="">
 								<div class="b-wrapper">
 									<h3 class="b-animate b-from-left    b-delay03 ">
@@ -97,7 +97,7 @@
 									</h3>
 								</div>
 							</a>
-							<p><a href="/commodity/deaails/${item.id}">${item.title}</a></p>
+							<p><a href="/commodity/details/${item.id}">${item.title}</a></p>
 						</div>
 					</c:if>
 				</c:forEach>
@@ -109,7 +109,7 @@
 		<div class="content-top-bottom">
 			<h2>特色商品</h2>
 			<div class="col-md-6 men">
-				<a href="/commodity/deaails/${requestScope.commodityData.featureData[0].id}" class="b-link-stripe b-animate-go  thickbox">
+				<a href="/commodity/details/${requestScope.commodityData.featureData[0].id}" class="b-link-stripe b-animate-go  thickbox">
 					<img class="img-responsive" src="/commodity/img/${requestScope.commodityData.featureData[0].mainimg}" alt="" style="height:560px">
 					<div class="b-wrapper">
 						<h3 class="b-animate b-from-top top-in   b-delay03 ">
@@ -120,7 +120,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="col-md1 ">
-					<a href="/commodity/deaails/${requestScope.commodityData.featureData[1].id}" class="b-link-stripe b-animate-go  thickbox" style="height:270px">
+					<a href="/commodity/details/${requestScope.commodityData.featureData[1].id}" class="b-link-stripe b-animate-go  thickbox" style="height:270px">
 						<img class="img-responsive" src="/commodity/img/${requestScope.commodityData.featureData[1].mainimg}" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-top top-in1   b-delay03 ">
@@ -131,7 +131,7 @@
 				</div>
 				<div class="col-md2">
 					<div class="col-md-6 men1">
-						<a href="/commodity/deaails/${requestScope.commodityData.featureData[2].id}" class="b-link-stripe b-animate-go  thickbox">
+						<a href="/commodity/details/${requestScope.commodityData.featureData[2].id}" class="b-link-stripe b-animate-go  thickbox">
 							<img class="img-responsive" src="/commodity/img/${requestScope.commodityData.featureData[2].mainimg}" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
@@ -141,7 +141,7 @@
 						</a>
 					</div>
 					<div class="col-md-6 men2">
-						<a href="/commodity/deaails/${requestScope.commodityData.featureData[3].id}" class="b-link-stripe b-animate-go  thickbox">
+						<a href="/commodity/details/${requestScope.commodityData.featureData[3].id}" class="b-link-stripe b-animate-go  thickbox">
 							<img class="img-responsive" src="/commodity/img/${requestScope.commodityData.featureData[3].mainimg}g" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">

@@ -6,6 +6,7 @@ import com.emall.common.entity.Categorize;
 import com.emall.common.entity.Commodity;
 import com.emall.common.entity.EmallUser;
 import com.emall.common.dto.IndexDataDto;
+import com.emall.common.service.CategorizeService;
 import com.emall.common.service.CommodityService;
 import com.emall.recomd.service.RecommendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class PageController {
     private CommodityService commodityService;
     @Autowired
     private RecommendService recommendService;
+    @Autowired
+    private CategorizeService categorizeService;
 
     /**
      * 为用户准备主页
@@ -78,7 +81,7 @@ public class PageController {
     private List<TopCategorizeDto> generateMeunData(){
         //获取n个一级分类
         List<Categorize> topNCategorize =
-                this.commodityService.listTopCategorize(EmallConf.TOP_CATEGORIZES_NUM);
+                this.categorizeService.listTopCategorize(EmallConf.TOP_CATEGORIZES_NUM);
         int realSize = topNCategorize.size();
 
         List<TopCategorizeDto> meunDto = new ArrayList<>(realSize);
@@ -92,7 +95,7 @@ public class PageController {
 
             //二级分类获取
             List<Categorize> subCategorizeList =
-                    this.commodityService.listCategorizeByTopCategorize(categorize.getId());
+                    this.categorizeService.listCategorizeByTopCategorize(categorize.getId());
             topCategorizeDto.setSubCategorizes(subCategorizeList);
 
             meunDto.add(topCategorizeDto);

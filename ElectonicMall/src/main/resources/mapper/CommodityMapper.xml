@@ -112,4 +112,16 @@
     ORDER BY
       createdate DESC
   </select>
+
+  <select id="listByCategorize" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    commodity m INNER JOIN commodity_categorize s
+    ON
+    m.id = s.comdid
+    WHERE
+    s.categid = #{cid}
+    ORDER BY m.createdate DESC
+  </select>
 </mapper>
