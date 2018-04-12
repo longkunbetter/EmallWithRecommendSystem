@@ -28,12 +28,16 @@
                 </c:choose>
 
                 <div class="cart box_1">
-                    <a href="checkout">
-                        <h3> <div class="total">
-                            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-                            <img src="${pageContext.request.contextPath}/images/cart.png" alt=""/></h3>
+                    <a href="${pageContext.request.contextPath}/cart">
+                        <h3>
+                            <div class="total">
+                                <span id="simpleCart_total" class="simpleCart_total"></span>
+                                (<span id="simpleCart_quantity" class="simpleCart_quantity">购物车为空</span>)
+                            </div>
+                            <img src="${pageContext.request.contextPath}/images/cart.png" alt=""/>
+                        </h3>
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">清空购物车</a></p>
+                    <p><a href="javascript:void(0)" onclick="clearCart()">清空购物车</a></p>
 
                 </div>
                 <div class="clearfix"> </div>

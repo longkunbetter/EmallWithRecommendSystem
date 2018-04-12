@@ -3,6 +3,9 @@ package com.emall.common.dto;
 import java.util.List;
 
 public class PageDto {
+    /**
+     * 分页公共属性
+     * */
     private Integer nowPage;
     private Long total;
     private List<?> data;

@@ -2,10 +2,12 @@ package com.emall.common.controller;
 
 import com.emall.common.constant.EmallConf;
 import com.emall.common.dto.TopCategorizeDto;
+import com.emall.common.entity.CartItem;
 import com.emall.common.entity.Categorize;
 import com.emall.common.entity.Commodity;
 import com.emall.common.entity.EmallUser;
 import com.emall.common.dto.IndexDataDto;
+import com.emall.common.service.CartService;
 import com.emall.common.service.CategorizeService;
 import com.emall.common.service.CommodityService;
 import com.emall.recomd.service.RecommendService;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +30,8 @@ public class PageController {
     private RecommendService recommendService;
     @Autowired
     private CategorizeService categorizeService;
+    @Autowired
+    private CartService cartService;
 
     /**
      * 为用户准备主页
@@ -58,11 +63,6 @@ public class PageController {
         request.setAttribute(EmallConf.INDEX_COMMODITY_DATA_KEY, indexCommoditys);
 
         return "index";
-    }
-
-    @RequestMapping(value = "checkout")
-    public String generateCheckOutPage(){
-        return "checkout";
     }
 
     @RequestMapping(value = "register")

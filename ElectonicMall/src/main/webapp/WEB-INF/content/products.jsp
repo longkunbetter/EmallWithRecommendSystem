@@ -17,7 +17,6 @@
 	<link href="${pageContext.request.contextPath}/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/memenu.js"></script>
 	<script>$(document).ready(function(){$(".memenu").memenu();});</script>
-	<script src="${pageContext.request.contextPath}/js/simpleCart.min.js"> </script>
 </head>
 <body>
 <!--header-->

@@ -19,6 +19,15 @@ public class CommodityService {
     private CommodityMapper commodityDao;
 
     /**
+     * 根据id获取商品
+     * @param commodityId
+     *          商品id
+     * */
+    public Commodity getCommodityById(int commodityId){
+        return commodityDao.selectByPrimaryKey(commodityId);
+    }
+
+    /**
      * 获取指定分类的商品数据
      * */
     public List<Commodity> listCommodityByCategorize(Integer categorizeId){

@@ -18,7 +18,6 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/memenu.js"></script>
 	<script>$(document).ready(function(){$(".memenu").memenu();});</script>
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
-	<script src="${pageContext.request.contextPath}/js/simpleCart.min.js"> </script>
 </head>
 <body>
 <!--header-->
@@ -246,7 +245,7 @@
 						<li><span>SKU</span>
 							<span class="women1">: CK09</span></li>
 					</ul>
-					<a href="#" class="add-cart item_add">ADD TO CART</a>
+					<a href="javascript:void(0)" onclick="addCommodityToCart('${commodityData.id}')" class="add-cart item_add">添加到购物车</a>
 
 				</div>
 			</div>
