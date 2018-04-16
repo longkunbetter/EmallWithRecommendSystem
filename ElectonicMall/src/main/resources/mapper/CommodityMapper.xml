@@ -124,4 +124,24 @@
     s.categid = #{cid}
     ORDER BY m.createdate DESC
   </select>
+
+  <select id="listByKeyword" parameterType="java.util.List" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM
+      commodity
+    WHERE
+      1 = 1
+      <foreach item="keyword" collection="list" index="index" open=""
+               separator=" " close="">
+        AND
+        (
+          title LIKE concat(concat('%',#{keyword}),'%')
+          OR
+          `desc` LIKE concat(concat('%',#{keyword}),'%')
+        )
+      </foreach>
+    ORDER BY
+      createdate DESC
+  </select>
 </mapper>

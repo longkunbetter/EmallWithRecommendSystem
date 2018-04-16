@@ -6,8 +6,15 @@
     <div class="header-top">
         <div class="container">
             <div class="search">
-                <form>
-                    <input type="text" value="每日推荐" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '每日推荐';}">
+                <form id="searchForm" action="${pageContext.request.contextPath}/commodity/search" method="post">
+                    <c:if test="${requestScope.isSearch != null}">
+                        <input name="keyword" type="text" value="${requestScope.commodityData.keyword}" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '${requestScope.commodityData.keyword}';}">
+                        <input name="nowPage" type="number" value="" hidden>
+                    </c:if>
+                    <c:if test="${requestScope.isSearch == null}">
+                        <input name="keyword" type="text" value="每日推荐" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '每日推荐';}">
+                        <input name="nowPage" type="number" value="" hidden>
+                    </c:if>
                     <input type="submit" value="搜索">
                 </form>
             </div>

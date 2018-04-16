@@ -62,6 +62,7 @@
                selectByExampleQueryId="false">
         </table>
         -->
+        <!--
         <table tableName="cart_item"
                enableCountByExample="false"
                enableUpdateByExample="false"
@@ -69,5 +70,6 @@
                enableSelectByExample="true"
                selectByExampleQueryId="false">
         </table>
+        -->
     </context>
 </generatorConfiguration>

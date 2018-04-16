@@ -39,6 +39,9 @@ jQuery(document).ready(function($){
 	}
 });
 
+/**
+ * 添加商品到购物车
+ * */
 function addCommodityToCart(cid) {
     $.ajax(
         {
@@ -60,6 +63,9 @@ function addCommodityToCart(cid) {
     )
 }
 
+/**
+ * 清空购物车
+ * */
 function clearCart() {
     $.ajax(
         {
@@ -75,6 +81,9 @@ function clearCart() {
     );
 }
 
+/**
+ * 从购物车移除商品
+ * */
 function removeCommodityFromCart(cid) {
     $.ajax(
         {
@@ -148,4 +157,13 @@ function isRealNum(val){
 function clearCartContent() {
     $('#simpleCart_total').text("");
     $('#simpleCart_quantity').text("购物车为空");
+}
+
+/**
+ * 提交搜索表单
+ * @param 搜索页码
+ * */
+function searchForPage(pageNum) {
+    $("[name='nowPage']").attr('value', pageNum);
+    $("#searchForm").submit();
 }

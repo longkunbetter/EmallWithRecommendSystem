@@ -18,8 +18,9 @@ public class LoginPermissionInterceptor implements HandlerInterceptor{
     private static final String[] IGNORE_URI_LIST = {
             "/index",
             "/login",
-            "/regester",
-            "/commodity/imgs/"
+            "/common/user/login",
+            "/register",
+            "/commodity/",
     };
 
     @Override
@@ -34,6 +35,7 @@ public class LoginPermissionInterceptor implements HandlerInterceptor{
 
         Object loginInfo = httpServletRequest.getSession().getAttribute(EmallConf.LOGIN_INFO_KEY);
         if (loginInfo == null){
+            httpServletResponse.sendRedirect("/login");
             return false;
         }
         else {

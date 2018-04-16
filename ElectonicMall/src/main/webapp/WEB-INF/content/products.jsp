@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>${requestScope.commodityData.categorizeName}_推一推商城</title>
+	<title>
+		${requestScope.commodityData.categorizeName != null}_推一推商城
+	</title>
 	<link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 	<!-- Custom Theme files -->

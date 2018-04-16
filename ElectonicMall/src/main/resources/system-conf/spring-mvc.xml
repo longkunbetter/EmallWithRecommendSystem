@@ -42,4 +42,15 @@
         <property name="prefix" value="/WEB-INF/content/" />
         <property name="suffix" value=".jsp" />
     </bean>
+
+    <!--拦截器-->
+    <mvc:interceptors>
+        <!--登录拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <mvc:exclude-mapping path="/index.jsp"/>
+            <bean class="com.emall.system.interceptor.LoginPermissionInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

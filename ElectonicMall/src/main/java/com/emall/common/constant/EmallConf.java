@@ -48,4 +48,14 @@ public class EmallConf {
      * 商品分类展示页面单页商品数量
      * */
     public static final int COMMODITY_CATEGORIZE_PAGE_SIZE = 9;
+
+    /**
+     * 商品搜索展示页面单页商品数量
+     * */
+    public static final int COMMODITY_SEARCH_PAGE_SIZE = 9;
+
+    /**
+     * 搜索标识位，用于head.jsp区分页面类型
+     * */
+    public static final String SEARCH_SYMBOL = "isSearch";
 }

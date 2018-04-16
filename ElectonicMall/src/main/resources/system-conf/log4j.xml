@@ -10,10 +10,7 @@
             <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH\:mm\:ss}] %t %c %m %n" />
         </layout>
     </appender>
-    <appender name="asyncConsole" class="org.apache.log4j.AsyncAppender">
-        <appender-ref ref="console" />
-    </appender>
-    
+
     <!--log4j作为kafka producer将日志发送到kafka中-->
     <appender name="behavior" class="org.apache.kafka.log4jappender.KafkaLog4jAppender">
         <param name="brokerList" value="Master:9092,Slave1:9092"/>
@@ -42,7 +39,7 @@
     <!-- Root Logger -->
     <root>
         <priority value="info" />
-        <appender-ref ref="asyncConsole"/>
+        <appender-ref ref="console"/>
     </root>
 
 </log4j:configuration>

@@ -12,6 +12,10 @@ public class PageDto {
     private Long pageCount;
 
     /**
+     * 关键词, 用作关键词搜索时的查询参数
+     * */
+    private String keyword;
+    /**
      * 商品类别id，用作分类查询时的查询参数
      * */
     private Integer categorizeId;
@@ -66,5 +70,13 @@ public class PageDto {
 
     public void setPageCount(Long pageCount) {
         this.pageCount = pageCount;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 }

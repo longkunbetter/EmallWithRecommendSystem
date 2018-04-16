@@ -33,4 +33,11 @@ public interface CommodityMapper {
      *          类型id
      * */
     List<Commodity> listByCategorize(int cid);
+
+    /**
+     * 根据关键词获取商品
+     * @param keywords
+     *          关键词
+     * */
+    List<Commodity> listByKeyword(List<String> keywords);
 }

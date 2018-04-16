@@ -8,10 +8,7 @@ import com.emall.system.util.MathUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class CommodityService {
@@ -88,5 +85,15 @@ public class CommodityService {
             hasSelectSet.add(currentIndex);
         }
         return selectResult;
+    }
+
+    /**
+     * 根据关键词搜索商品
+     * @param keyword
+     *          关键词
+     * */
+    public List<Commodity> searchCommodity(String keyword){
+        List<String> keywords = Arrays.asList(keyword.split("\\s+"));
+        return commodityDao.listByKeyword(keywords);
     }
 }
