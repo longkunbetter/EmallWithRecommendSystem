@@ -70,7 +70,7 @@
 			</ul>
 
 			<div class="clearfix"></div>
-			<a class="order" href="#">结算订单</a>
+			<a class="order" href="javascript:void(0)" onclick="commitOrder()">结算订单</a>
 			<div class="total-item">
 				<h3>&nbsp;</h3>
 				<h4>&nbsp;</h4>

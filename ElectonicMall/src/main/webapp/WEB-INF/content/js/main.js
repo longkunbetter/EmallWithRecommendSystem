@@ -167,3 +167,25 @@ function searchForPage(pageNum) {
     $("[name='nowPage']").attr('value', pageNum);
     $("#searchForm").submit();
 }
+
+/**
+ * 结算购物车提交订单
+ * */
+function commitOrder() {
+    $.ajax(
+        {
+            url:"/order/checkout",
+            type:"get",
+            dataType:"json",
+            success:function (res) {
+                if (res.returnCode == 1){
+                    alert('提交订单成功');
+                    window.location.reload();
+                }
+                else {
+                    alert('提交订单时遇到了错误，原因是:' + res.returnMessage);
+                }
+            }
+        }
+    )
+}
