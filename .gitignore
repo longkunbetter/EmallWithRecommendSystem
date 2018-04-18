@@ -1,0 +1,11 @@
+/**/.idea/
+/**/venv/
+/RecommendSystemOffline/.idea/
+/RecommendSystemOffline/venv/
+/ElectonicMall/.idea/
+/ElectonicMall/target/
+/ElectonicMall/ElectonicMall.iml
+/ElectonicMall/src/test
+/imgs
+/logs
+/DataCooke

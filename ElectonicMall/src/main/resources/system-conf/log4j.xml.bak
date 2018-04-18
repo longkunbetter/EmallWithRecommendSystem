@@ -18,7 +18,7 @@
         <param name="topic" value="userBehavior"/>
         <param name="Encoding" value="UTF-8"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss}\t%m\t%n"/>
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss}\t%m%n"/>
         </layout>
     </appender>
     <!--异步发送防止阻塞业务正常进行-->
